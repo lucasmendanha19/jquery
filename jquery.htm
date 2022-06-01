@@ -1,0 +1,580 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>O framework jQuery</title>
+    <script type="text/javascript" src="http://ff.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=euiOLpana3LuR3axIufLRViPrtJYdI27MKR-PHbVWG550eQ43ulWffwjtCuXvOLWfHjTnKFxgM-ttHH2RoBZa5MtrgRkmUV0jle4ojHf6TQgKWuQ4A54PSoca5bCMK7o" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="http://ff.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cDovL3d3dy5icnVub2NhbXBhZ25vbG8uY29tLzIwMTB0cHUvd3AtY29udGVudC91cGxvYWRzLzIwMTAvMDMvanF1ZXJ5Lmh0bQ"/>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+        //3.1 - 3.4
+            $("#toc").hide();
+        
+            $("input[value='Show Index']").on("click", function(){
+                $("#toc").show();
+                
+            });
+
+            $("input[value='Hide Index']").on("click", function(){
+                $("#toc").hide();
+
+            });
+            $("input[value='Show / Hide Index']").on("click", function(){
+                $("#toc").toggle();
+
+            });
+
+        //3.5 - 3.9     
+
+            $(".external ").css({
+            "border-style": 'solid',
+            "border-color": 'red',
+            });
+
+            $(".header").css({"background-color": "yellow"}).hide();
+            $(".header").css({"background-color": "yellow"}).show(1500);
+
+            // $(".editsection").hide(1500);
+
+            // $("input[value='Edit Mode']").on("click",function(){
+            //     $(".editsection").show();
+
+            // });
+
+            $("input[value='Show / Hide Index']").on("click", function(){
+                $("#toc").toggle();
+
+             });
+
+            $("input[value='Show / Hide Index']").on("click", function(){
+                $("#toc").toggle(2000);
+                $(".tocnumber").css({"background-color":'grey'});
+                
+
+            });
+
+        //3.12 - 3.16
+            $("fieldset input").after("*");
+
+            $("div.editsection a").after("<span>>>>></span>");
+
+            $("div.editsection a").next().on("mouseover", function(){
+                $(this).css({"font-style": 'italic'});
+
+            });
+
+            $("p > a").on("click",function(){
+                alert($("p > a").attr('title'));
+
+            });
+
+            $("label+input").each( function(){
+                $(this).attr("value" ,$(this).attr("title"));
+            });
+            console.log($("#name"));
+        
+
+        });
+    
+    </script>
+
+</head>
+<body>
+    
+    <div id="jq-siteContain">
+         <form action="">
+            <input type="button" id="btContents" value="Show Index"/>
+            <input type="button" id="btHideContents" value="Hide Index"/>
+            <input type="button" id="btShowHideContents" value="Show / Hide Index"/>
+            <input type="button" id="btEditMode" value="Edit Mode"/>
+         </form>
+         
+         <form action="">
+            <fieldset>
+            <legend>Feedback about this page</legend>
+                <div>
+                    <p><label for="name">Name:</label><input type="text" id="name" title="Name?" /></p>
+                    <p><label for="email">Email:</label><input type="text" id="email" title="Email?" /></p>
+                </div>
+                <p><input type="text" id="other" title="Other?" /></p>
+                <p>
+                    <input type="radio" id="masc" name="sex" checked="checked"/><label for="masc">M</label>
+                    <input type="radio" id="fem" name="sex"/><label for="fem">F</label>
+                </p>
+            </fieldset>      
+            <input type="button" id="btFeedback" value="Copy Values" />  
+            <span id="sName"></span>, <span id="sEmail"></span> 
+             
+         </form>
+         
+         <table id="toc" class="toc" summary="Contents">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div id="toctitle">
+                                                <h2>
+                                                    Contents</h2>
+                                            </div>
+                                            <ul>
+                                                <li class="toclevel-1"><a href="#The_Basics">
+                                                    <span class="tocnumber">1</span> <span class="toctext">The Basics</span></a>
+                                                    <ul>
+                                                        <li class="toclevel-2"><a href="#Launching_Code_on_Document_Ready">
+                                                            <span class="tocnumber">1.1</span> <span class="toctext">Launching Code on Document
+                                                                Ready</span></a></li>
+                                                        <li class="toclevel-2"><a href="#Adding_a_CSS_Class">
+                                                            <span class="tocnumber">1.2</span> <span class="toctext">Adding a CSS Class</span></a></li>
+                                                        <li class="toclevel-2"><a href="#Special_Effects">
+                                                            <span class="tocnumber">1.3</span> <span class="toctext">Special Effects</span></a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="toclevel-1"><a href="#Chainability_.28The_Magic_of_jQuery.29">
+                                                    <span class="tocnumber">2</span> <span class="toctext">Chainability (The Magic of jQuery)</span></a></li>
+                                                <li class="toclevel-1"><a href="#Callbacks_and_Functions">
+                                                    <span class="tocnumber">3</span> <span class="toctext">Callbacks and Functions</span></a>
+                                                    <ul>
+                                                        <li class="toclevel-2"><a href="#Callback_without_arguments">
+                                                            <span class="tocnumber">3.1</span> <span class="toctext">Callback without arguments</span></a></li>
+                                                        <li class="toclevel-2"><a href="#Callback_with_arguments">
+                                                            <span class="tocnumber">3.2</span> <span class="toctext">Callback with arguments</span></a>
+                                                            <ul>
+                                                                <li class="toclevel-3"><a href="#Wrong"><span
+                                                                    class="tocnumber">3.2.1</span> <span class="toctext">Wrong</span></a></li>
+                                                                <li class="toclevel-3"><a href="#Right"><span
+                                                                    class="tocnumber">3.2.2</span> <span class="toctext">Right</span></a></li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="toclevel-1"><a href="#More_Reading">
+                                                    <span class="tocnumber">4</span> <span class="toctext">More Reading</span></a></li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+    
+    
+        <div id="jq-content" class="jq-clearfix">
+            <div id="jq-primaryContent">
+                <div id="column-content">
+                    <div id="docs-content">
+                        <!--DOCUMENT_FRAGMENT-->
+                        <h1 class="firstHeading header">
+                            Tutorials:How jQuery Works</h1>
+                        <div id="bodyContent">
+                            <h3 id="siteSub" class="header">
+                                From jQuery JavaScript Library</h3>
+                            <div id="contentSub">
+                                (Redirected from <a href="http://docs.jquery.com/index.php?title=How_jQuery_Works&amp;redirect=no"
+                                    title="How jQuery Works">How jQuery Works</a>)</div>
+                            <div id="jump-to-nav">
+                                Jump to: <a href="#column-one">navigation</a>,
+                                <a href="#searchInput">search</a></div>
+                            <!-- start content -->
+                            <div>
+                                <p>
+                                    <big>A basic introduction to jQuery and the concepts that you need to know to use it.</big>
+                                </p>
+                                <p>
+                                    <b>Original:</b> <a href="http://docs.jquery.com/Tutorials:How_jQuery_Works" class="external free"
+                                        title="http://docs.jquery.com/Tutorials:How_jQuery_Works">http://docs.jquery.com/Tutorials:How_jQuery_Works</a><br>
+                                    <b>Author:</b> <a href="http://ejohn.org/" class="external text" title="http://ejohn.org/">
+                                        John Resig.</a>
+                                </p>
+                                Similar Tutorials:&nbsp;<a href="http://docs.jquery.com/Category:JQuery_Core" title="Category:JQuery Core">jQuery
+                                    Core</a>,&nbsp;<a href="http://docs.jquery.com/Category:Selectors" title="Category:Selectors">Selectors</a>,&nbsp;<a
+                                        href="http://docs.jquery.com/Category:CSS" title="Category:CSS">CSS</a>,&nbsp;<a
+                                            href="http://docs.jquery.com/Category:Traversing" title="Category:Traversing">Traversing</a>,&nbsp;<a
+                                                href="http://docs.jquery.com/Category:Manipulation" title="Category:Manipulation">Manipulation</a>,&nbsp;<a
+                                                    href="http://docs.jquery.com/Category:Events" title="Category:Events">Events</a>,&nbsp;<a
+                                                        href="http://docs.jquery.com/Category:Effects" title="Category:Effects">Effects</a></div>
+                            <p>
+                                <br>
+                            </p>
+                            <pre>
+  &lt;html&gt;
+  &lt;head&gt;
+    &lt;script type="text/javascript" src="jquery.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript"&gt;
+      // Your code goes here
+    &lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;a href="http://jquery.com/"&gt;jQuery&lt;/a&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+
+</pre>
+                            <p>
+                                Edit the <code>src</code> attribute in the script tag to point to your copy of jquery.js.
+                                For example, if jquery.js is in the same directory as your HTML file, you can use:
+                            </p>
+                            <pre> &lt;script type="text/javascript" src="jquery.js"&gt;&lt;/script&gt;
+</pre>
+                            <p>
+                                You can download your own copy of jQuery from the <a href="http://docs.jquery.com/Downloading_jQuery"
+                                    title="Downloading jQuery">Downloading jQuery</a> page.
+                            </p>
+                            
+                            <div class="editsection">
+                                [<a href="http://docs.jquery.com/action/edit/Tutorials:How_jQuery_Works?section=1"
+                                    title="Edit section: The Basics">edit</a>]</div>
+                            <a name="The_Basics"></a>
+                            <h2 class="header">
+                                The Basics
+                            </h2>
+                            <p>
+                                This is a basic tutorial, designed to help you get started using jQuery. If you
+                                don't have a test page setup yet, start by creating a new HTML page with the following
+                                contents:
+                            </p>
+                            <pre>
+  &lt;html&gt;
+  &lt;head&gt;
+    &lt;script type="text/javascript" src="jquery.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript"&gt;
+      // Your code goes here
+    &lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;a href="http://jquery.com/"&gt;jQuery&lt;/a&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+
+</pre>
+                            <p>
+                                Edit the <code>src</code> attribute in the script tag to point to your copy of jquery.js.
+                                For example, if jquery.js is in the same directory as your HTML file, you can use:
+                            </p>
+                            <pre> &lt;script type="text/javascript" src="jquery.js"&gt;&lt;/script&gt;
+</pre>
+                            <p>
+                                You can download your own copy of jQuery from the <a href="http://docs.jquery.com/Downloading_jQuery"
+                                    title="Downloading jQuery">Downloading jQuery</a> page.
+                            </p>
+                            <div class="editsection">
+                                [<a href="http://docs.jquery.com/action/edit/Tutorials:How_jQuery_Works?section=2"
+                                    title="Edit section: Launching Code on Document Ready">edit</a>]</div>
+                            <a name="Launching_Code_on_Document_Ready"></a>
+                            <h3 class="header">
+                                Launching Code on Document Ready
+                            </h3>
+                            <p>
+                                The first thing that most Javascript programmers end up doing is adding some code
+                                to their program, similar to this:
+                            </p>
+                            <pre> window.onload = function(){ alert("welcome"); }
+</pre>
+                            <p>
+                                Inside of which is the code that you want to run right when the page is loaded.
+                                Problematically, however, the Javascript code isn't run until all images are finished
+                                downloading (this includes banner ads). The reason for using window.onload in the
+                                first place is due to the fact that the HTML 'document' isn't finished loading yet,
+                                when you first try to run your code.
+                            </p>
+                            <p>
+                                To circumvent both problems, jQuery has a simple statement that checks the <code>document</code>
+                                and waits until it's ready to be manipulated, known as the <a href="http://docs.jquery.com/Events#ready.28_fn_.29"
+                                    title="Events">ready event</a>:
+                            </p>
+                            <pre> $(document).ready(function(){
+   // Your code here
+ });
+</pre>
+                            <p>
+                                The remaining jQuery examples will need to be placed inside the <a href="http://docs.jquery.com/Events#ready.28_fn_.29"
+                                    title="Events">ready event</a> so that they are executed when the document is
+                                ready to be worked on. Add the next section of code:
+                            </p>
+                            <pre> $("a").click(function(event){
+   alert("Thanks for visiting!");
+ });
+</pre>
+                            <p>
+                                Save your HTML file and reload the test page in your browser. Clicking the link
+                                on the page should make a browser's alert pop-up, before leaving to go to the main
+                                jQuery page.
+                            </p>
+                            <p>
+                                For click and most other <a href="http://docs.jquery.com/Events" title="Events">events</a>,
+                                you can prevent the default behaviour - here, following the link to jquery.com -
+                                by calling event.preventDefault() in the event handler:
+                            </p>
+                            <pre> $("a").click(function(event){
+   alert("As you can see, the link no longer took you to jquery.com");
+   event.preventDefault();
+ });
+</pre>
+                            <div class="editsection">
+                                [<a href="http://docs.jquery.com/action/edit/Tutorials:How_jQuery_Works?section=3"
+                                    title="Edit section: Adding a CSS Class">edit</a>]</div>
+                            <a name="Adding_a_CSS_Class"></a>
+                            <h3 class="header">
+                                Adding a CSS Class
+                            </h3>
+                            <p>
+                                Another common task is adding (or removing) a CSS (Cascading Style Sheet) <code>class</code>.
+                            </p>
+                            <p>
+                                <br>
+                                First, if you were to add some style information into the header of your script,
+                                like this:
+                            </p>
+                            <pre> &lt;style type="text/css"&gt;
+    a.test { font-weight: bold; }
+ &lt;/style&gt;
+</pre>
+                            <p>
+                                and then added the <a href="http://docs.jquery.com/Attributes/addClass" title="Attributes/addClass">
+                                    addClass</a> call -
+                            </p>
+                            <pre>  $("a").addClass("test");
+</pre>
+                            <p>
+                                all your <code>a</code> elements would now be bold. To remove the <code>class</code>,
+                                you'd use <a href="http://docs.jquery.com/Attributes/removeClass" title="Attributes/removeClass">
+                                    removeClass</a>
+                            </p>
+                            <pre> $("a").removeClass("test");
+</pre>
+                            <ul>
+                                <li>(CSS allows multiple classes to be added to an element.) </li>
+                            </ul>
+                            <div class="editsection">
+                                [<a href="http://docs.jquery.com/action/edit/Tutorials:How_jQuery_Works?section=4"
+                                    title="Edit section: Special Effects">edit</a>]</div>
+                            <a name="Special_Effects"></a>
+                            <h3 class="header">
+                                Special Effects
+                            </h3>
+                            <p>
+                                In jQuery, a couple of handy <a href="http://docs.jquery.com/Effects" title="Effects">
+                                    effects</a> are provided, to really make your web site stand out. To put this
+                                to the test, change the click that you added earlier to this:
+                            </p>
+                            <pre> $("a").click(function(event){
+   event.preventDefault();
+   $(this).hide("slow");
+ });
+</pre>
+                            <p>
+                                Now, if you click any link, it should make itself slowly disappear.
+                            </p>
+                            <div class="editsection">
+                                [<a href="http://docs.jquery.com/action/edit/Tutorials:How_jQuery_Works?section=5"
+                                    title="Edit section: Chainability (The Magic of jQuery)">edit</a>]</div>
+                            <a name="Chainability_.28The_Magic_of_jQuery.29"></a>
+                            <h2 class="header">
+                                Chainability (The Magic of jQuery)
+                            </h2>
+                            <p>
+                                jQuery uses an interesting concept called a "Builder" to make its code short and
+                                simple. The Builder pattern is an object-oriented programming design pattern that
+                                has been gaining popularity.
+                            </p>
+                            <p>
+                                In a nutshell: Every method within jQuery returns the query object itself, allowing
+                                you to 'chain' upon it, for example:
+                            </p>
+                            <pre> $("a").addClass("test").show().html("foo");
+</pre>
+                            <p>
+                                Each of those individual methods (<code>addClass</code>, <code>show</code>, and
+                                <code>html</code>) return the jQuery object, allowing you to continue applying methods
+                                to the current set of elements.
+                            </p>
+                            <p>
+                                You can take this even further, by adding or removing elements from the selection,
+                                modifying those elements and then reverting to the old selection, for example:
+                            </p>
+                            <pre> $("a")
+   .filter(".clickme")
+     .click(function(){
+       alert("You are now leaving the site.");
+     })
+   .end()
+   .filter(".hideme")
+     .click(function(){
+       $(this).hide();
+       return false;
+     })
+   .end();
+</pre>
+                            <p>
+                                Which would work against the following HTML:
+                            </p>
+                            <pre>
+<br>&lt;a href="<a href="http://google.com/" class="external free" title="http://google.com/">
+    http://google.com/</a>" class="clickme"&gt;I give a message when you leave&lt;/a&gt;
+ <br>&lt;a href="<a
+        href="http://yahoo.com/" class="external free" title="http://yahoo.com/">http://yahoo.com/</a>" class="hideme"&gt;Click me to hide!&lt;/a&gt;
+ <br>&lt;a href="
+<a href="http://microsoft.com/" class="external free" title="http://microsoft.com">http://microsoft.com</a>"&gt;I'm a normal link&lt;/a&gt;
+</pre>
+                            <p>
+                                Methods that modify the jQuery selection and can be undone with <code>end()</code>,
+                                are the following:
+                            </p>
+                            <ul>
+                                <li><code>add()</code>, </li>
+                                <li><code>children()</code>, </li>
+                                <li><code>eq()</code>, </li>
+                                <li><code>filter()</code>, </li>
+                                <li><code>find()</code>, </li>
+                                <li><code>gt()</code>, </li>
+                                <li><code>lt()</code>, </li>
+                                <li><code>next()</code>, </li>
+                                <li><code>not()</code>, </li>
+                                <li><code>parent()</code>, </li>
+                                <li><code>parents()</code> and </li>
+                                <li><code>siblings()</code>. </li>
+                            </ul>
+                            <p>
+                                Please check the <a href="http://docs.jquery.com/Traversing" title="Traversing">Traversing
+                                    API documentation</a> for details of these methods.
+                            </p>
+                            <div class="editsection">
+                                [<a href="http://docs.jquery.com/action/edit/Tutorials:How_jQuery_Works?section=6"
+                                    title="Edit section: Callbacks and Functions">edit</a>]</div>
+                            <a name="Callbacks_and_Functions"></a>
+                            <h2 class="header">
+                                Callbacks and Functions
+                            </h2>
+                            <p>
+                                A callback is a function that is passed as an argument to another function and is
+                                executed after its parent function has completed. The special thing about a callback
+                                is that functions that appear after the "parent" can execute before the callback
+                                executes.
+                            </p>
+                            <p>
+                                Another important thing to know is how to properly pass the callback. This is where
+                                I have often forgotten the proper syntax.
+                            </p>
+                            <div class="editsection">
+                                [<a href="http://docs.jquery.com/action/edit/Tutorials:How_jQuery_Works?section=7"
+                                    title="Edit section: Callback without arguments">edit</a>]</div>
+                            <a name="Callback_without_arguments"></a>
+                            <h3 class="header">
+                                Callback <em>without</em> arguments
+                            </h3>
+                            <p>
+                                For a callback with no arguments you pass it like this:
+                            </p>
+                            <pre> $.get('myhtmlpage.html', myCallBack);
+</pre>
+                            <p>
+                                <b>Note</b> that the second parameter here is simply the function name (but <i>not</i>
+                                as a string and without parentheses). Functions in Javascript are 'First class citizens'
+                                and so can be passed around like variable references and executed at a later time.
+                            </p>
+                            <div class="editsection">
+                                [<a href="http://docs.jquery.com/action/edit/Tutorials:How_jQuery_Works?section=8"
+                                    title="Edit section: Callback with arguments">edit</a>]</div>
+                            <a name="Callback_with_arguments"></a>
+                            <h3 class="header">
+                                Callback <em>with</em> arguments
+                            </h3>
+                            <p>
+                                "What do you do if you have arguments that you want to pass?", you might ask yourself.
+                            </p>
+                            <div class="editsection">
+                                [<a href="http://docs.jquery.com/action/edit/Tutorials:How_jQuery_Works?section=9"
+                                    title="Edit section: Wrong">edit</a>]</div>
+                            <a name="Wrong"></a>
+                            <h4 class="header">
+                                Wrong
+                            </h4>
+                            <p>
+                                The Wrong Way (will <b>not</b> work!)
+                            </p>
+                            <pre> $.get('myhtmlpage.html', myCallBack(param1, param2));
+</pre>
+                            <p>
+                                <br>
+                                This will not work because it calls
+                            </p>
+                            <pre>myCallBack(param1, param2)
+</pre>
+                            <p>
+                                and then passes the return value as the second parameter to <code><a href="http://docs.jquery.com/Ajax"
+                                    title="Ajax">$.get()</a></code>.
+                            </p>
+                            <div class="editsection">
+                                [<a href="http://docs.jquery.com/action/edit/Tutorials:How_jQuery_Works?section=10"
+                                    title="Edit section: Right">edit</a>]</div>
+                            <a name="Right"></a>
+                            <h4 class="header">
+                                Right
+                            </h4>
+                            <p>
+                                The problem with the above example is that myCallBack(param1, param2) is evaluated
+                                before being passed as a function.
+                            </p>
+                            <p>
+                                In the below usage, an anonymous function is created (just a block of statements)
+                                and is registered as the callback function. Note the use of 'function(){'. The anonymous
+                                function does exactly one thing: calls myCallBack, with the values of param1 and
+                                param2 in the outer scope.
+                            </p>
+                            <pre>$.get('myhtmlpage.html', function(){
+  myCallBack(param1, param2);
+});
+</pre>
+                            <p>
+                                param1 and param2 are evaluated as a callback when the '$.get' is done getting the
+                                page.
+                            </p>
+                            <div class="editsection">
+                                [<a href="http://docs.jquery.com/action/edit/Tutorials:How_jQuery_Works?section=11"
+                                    title="Edit section: More Reading">edit</a>]</div>
+                            <a name="More_Reading"></a>
+                            <h2 class="header">
+                                More Reading
+                            </h2>
+                            <p>
+                                jQuery users have developed a number of helpful <b><a href="http://docs.jquery.com/Tutorials"
+                                    title="Tutorials">tutorials</a></b> to help guide you, the new jQuery user,
+                                through the process of learning how to best use this library. Again, if we could
+                                not describe properly the features of the jQuery-library... simply let us know about
+                                it.
+                            </p>
+                            <p>
+                                From here, you should probably begin looking at the rest of the <a href="http://docs.jquery.com/Main_Page"
+                                    title="Main Page">Documentation</a> - it's very comprehensive and covers all
+                                aspects of jQuery. If you have any questions, please feel free to send a message
+                                to the <a href="http://jquery.com/discuss/" class="external text" title="http://jquery.com/discuss/">
+                                    mailing list</a>.
+                            </p>
+                            <!-- 
+Pre-expand include size: 3869 bytes
+Post-expand include size: 2761 bytes
+Template argument size: 1192 bytes
+Maximum: 2097152 bytes
+-->
+                            <!-- Saved in parser cache with key jqdocs_docs:pcache:idhash:1498-0!1!0!!en!2 and timestamp 20090227131806 -->
+                            <div class="printfooter">
+                                Retrieved from "<a href="http://docs.jquery.com/Tutorials:How_jQuery_Works">http://docs.jquery.com/Tutorials:How_jQuery_Works</a>"</div>
+                            <div id="catlinks">
+                                <p class="catlinks">
+                                    <a href="http://docs.jquery.com/index.php?title=Special:Categories&amp;article=Tutorials%3AHow_jQuery_Works"
+                                        title="Special:Categories">Categories</a>: <span dir="ltr"><a href="http://docs.jquery.com/Category:JQuery_Core"
+                                            title="Category:JQuery Core">JQuery Core</a></span> | <span dir="ltr"><a href="http://docs.jquery.com/Category:Selectors"
+                                                title="Category:Selectors">Selectors</a></span> | <span dir="ltr"><a href="http://docs.jquery.com/Category:CSS"
+                                                    title="Category:CSS">CSS</a></span> | <span dir="ltr"><a href="http://docs.jquery.com/Category:Traversing"
+                                                        title="Category:Traversing">Traversing</a></span> | <span dir="ltr"><a href="http://docs.jquery.com/Category:Manipulation"
+                                                            title="Category:Manipulation">Manipulation</a></span> |
+                                    <span dir="ltr"><a href="http://docs.jquery.com/Category:Events" title="Category:Events">
+                                        Events</a></span> | <span dir="ltr"><a href="http://docs.jquery.com/Category:Effects"
+                                            title="Category:Effects">Effects</a></span> | <span dir="ltr"><a href="http://docs.jquery.com/Category:Tutorials"
+                                                title="Category:Tutorials">Tutorials</a></span></p>
+                            </div>
+                        </div>
+                        <!--/DOCUMENT_FRAGMENT-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
